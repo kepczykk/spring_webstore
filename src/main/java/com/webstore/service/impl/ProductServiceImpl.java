@@ -39,4 +39,8 @@ public class ProductServiceImpl implements ProductService{
     public Set<Product> getProductsByPriceFilter(Map<String, List<String>> filterParams) {
         return productRepository.getProductsByPriceFilter(filterParams);
     }
+
+    public void addProduct(Product product) {
+        productRepository.addProduct(product);
+    }
 }
