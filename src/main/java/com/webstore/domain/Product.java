@@ -1,18 +1,41 @@
 package com.webstore.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import java.math.BigDecimal;
 
+@XmlRootElement
 public class Product {
+
     private String productId;
+
     private String name;
+
     private BigDecimal unitPrice;
+
     private String description;
+
     private String manufacturer;
+
     private String category;
+
     private long unitsInStock;
+
     private long unitsInOrder;
+
     private boolean discontinued;
+
     private String condition;
+
+    @JsonIgnore
+    private MultipartFile productImage;
+
+    @JsonIgnore
+    private MultipartFile productManual;
+
 
     public Product() {
         super();
@@ -104,6 +127,24 @@ public class Product {
         this.condition = condition;
     }
 
+    @XmlTransient
+    public MultipartFile getProductImage() {
+        return productImage;
+    }
+
+    public void setProductImage(MultipartFile productImage) {
+        this.productImage = productImage;
+    }
+
+    @XmlTransient
+    public MultipartFile getProductManual() {
+        return productManual;
+    }
+
+    public void setProductManual(MultipartFile productManual) {
+        this.productManual = productManual;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -131,4 +172,5 @@ public class Product {
     public String toString() {
         return "Produkt [productId=" + productId + ", nazwa=" + name +"]";
     }
+
 }
