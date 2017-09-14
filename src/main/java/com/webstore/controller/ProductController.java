@@ -132,4 +132,9 @@ public class ProductController {
         mav.setViewName("productNotFound");
         return mav;
     }
+
+    @RequestMapping("/invalidPromoCode")
+    public String invalidPromoCode() {
+        return "invalidPromoCode";
+    }
 }
